@@ -2,9 +2,10 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 import personal.day0120.Day0120;
-import personal.day0120.day0121.ListNode;
+//import personal.day0120.day0121.ListNode;
 import personal.day1014.SubString;
 import personal.day1202.SortList;
+import personal.day1203.Day1203;
 
 public class Main {
     public static void main(String[] args) {
@@ -24,8 +25,26 @@ public class Main {
 //        String str = "franksshandsomeeee";
 //        int ans = subString.lengthOfLongestSubstring(str);
 //        System.out.println(ans);
+//
+//        SortList sortList = new SortList();
+//        //sortList.test();
+//        double aa = 2* 4.00;
+//
+//        sortList.testreverseKGroup();
 
-        SortList sortList = new SortList();
-        sortList.test();
+        int[] arr = {1,9,2,3,8,2,5};
+
+
+            try {
+                Day1203.selectSortFunction(arr);
+                //Day1203.bubbleSortFunction(arr);
+                //Day1203.insertSortFunction(arr);
+                arr.clone();
+            } catch (Exception e1) {
+                e1.printStackTrace();
+            }
+            for(int e : arr) {
+                System.out.print(e);
+            }
     }
 }

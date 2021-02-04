@@ -70,10 +70,54 @@ public class SortList {
     }
 
     public ListNode reverseKGroup(ListNode head,int k) {
-        ListNode newHead = new ListNode(0);
-        while (true) {
+        ListNode curr = head;
+        int count = 0;
+        while (curr != null && count != k) { // find the k+1 node
+            curr = curr.next;
+            count++;
+        }
+        if (count == k) { // if k+1 node is found
+            curr = reverseKGroup(curr, k); // reverse list with k+1 node as head
+            // head - head-pointer to direct part,
+            // curr - head-pointer to reversed part;
+            System.out.println(curr.val);
+            while (count-- > 0) { // reverse current k-group:
+                ListNode tmp = head.next; // tmp - next head in direct part
+                head.next = curr; // preappending "direct" head to the reversed list
+                curr = head; // move head of reversed part to a new node
+                head = tmp; // move "direct" head to the next node in direct part
+                System.out.println("exchange tmp"+tmp.val);
+                System.out.println("exchange head" +head.val);
+                System.out.println("exchange curr"+curr.val);
+
+            }
+            head = curr;
+        }
+        return head;
+    }
+
+    public void testreverseKGroup() {
+        ListNode list1 = new ListNode(0);
+        ListNode list2 = new ListNode(1);
+        ListNode list3 = new ListNode(3);
+        ListNode list4 = new ListNode(4);
+        ListNode list5 = new ListNode(5);
+        list1.next = list3;
+        list3.next = list2;
+        list2.next = list4;
+        list4.next = list5;
+        list5.next = null;
+        ListNode temp = list1;
+        while (temp != null) {
+            temp = temp.next;
 
         }
-        return newHead;
+        ListNode head = reverseKGroup(list1,3);
+        int count = 0;
+        while (head != null) {
+            head = head.next;
+            count ++;
+        }
+        return ;
     }
 }
