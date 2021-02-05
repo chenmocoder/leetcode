@@ -1,6 +1,8 @@
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
+
+import day20210204.MinStack;
 import personal.day0120.Day0120;
 //import personal.day0120.day0121.ListNode;
 import personal.day1014.SubString;
@@ -31,20 +33,35 @@ public class Main {
 //        double aa = 2* 4.00;
 //
 //        sortList.testreverseKGroup();
+//
+//        int[] arr = {1,9,2,3,8,2,5};
+//
+//
+//            try {
+//                Day1203.selectSortFunction(arr);
+//                //Day1203.bubbleSortFunction(arr);
+//                //Day1203.insertSortFunction(arr);
+//                arr.clone();
+//            } catch (Exception e1) {
+//                e1.printStackTrace();
+//            }
+//            for(int e : arr) {
+//                System.out.print(e);
+//            }
 
-        int[] arr = {1,9,2,3,8,2,5};
+        //test min static
+        MinStack minStack = new MinStack();
+        int[] testArr = {2,3,1,8,4,10};
+        for(int ele : testArr){
+            minStack.pushToStack(ele);
+        }
+        System.out.println("----------");
+        System.out.print(minStack.getMinFromStatic());
+        System.out.println("----------");
+        minStack.popFromStack();
+        minStack.popFromStack();
+        System.out.println("top" + minStack.top());
+        System.out.println("min" + minStack.getMinFromStatic());
 
-
-            try {
-                Day1203.selectSortFunction(arr);
-                //Day1203.bubbleSortFunction(arr);
-                //Day1203.insertSortFunction(arr);
-                arr.clone();
-            } catch (Exception e1) {
-                e1.printStackTrace();
-            }
-            for(int e : arr) {
-                System.out.print(e);
-            }
     }
 }
