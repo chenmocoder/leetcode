@@ -3,6 +3,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import day20210204.MinStack;
+import day20210207.Day20210207;
 import personal.day0120.Day0120;
 //import personal.day0120.day0121.ListNode;
 import personal.day1014.SubString;
@@ -50,18 +51,25 @@ public class Main {
 //            }
 
         //test min static
-        MinStack minStack = new MinStack();
-        int[] testArr = {2,3,1,8,4,10};
-        for(int ele : testArr){
-            minStack.pushToStack(ele);
-        }
-        System.out.println("----------");
-        System.out.print(minStack.getMinFromStatic());
-        System.out.println("----------");
-        minStack.popFromStack();
-        minStack.popFromStack();
-        System.out.println("top" + minStack.top());
-        System.out.println("min" + minStack.getMinFromStatic());
+//        MinStack minStack = new MinStack();
+//        int[] testArr = {2,3,1,8,4,10};
+//        for(int ele : testArr){
+//            minStack.pushToStack(ele);
+//        }
+//        System.out.println("----------");
+//        System.out.print(minStack.getMinFromStatic());
+//        System.out.println("----------");
+//        minStack.popFromStack();
+//        minStack.popFromStack();
+//        System.out.println("top" + minStack.top());
+//        System.out.println("min" + minStack.getMinFromStatic());
 
+        //test plalindrome string
+        String s = "A man, a plan, a canal: Panama";
+        boolean result = Day20210207.isPlalindrome(s);
+        System.out.println(result);
+        char[] tempch = s.toCharArray();
+        Day20210207.reverseStringArray(tempch);
+        System.out.println(tempch);
     }
 }
