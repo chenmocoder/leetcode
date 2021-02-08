@@ -65,11 +65,14 @@ public class Main {
 //        System.out.println("min" + minStack.getMinFromStatic());
 
         //test plalindrome string
-        String s = "A man, a plan, a canal: Panama";
-        boolean result = Day20210207.isPlalindrome(s);
-        System.out.println(result);
-        char[] tempch = s.toCharArray();
-        Day20210207.reverseStringArray(tempch);
-        System.out.println(tempch);
+//        String s = "A man, a plan, a canal: Panama";
+//        boolean result = Day20210207.isPlalindrome(s);
+//        System.out.println(result);
+//        char[] tempch = s.toCharArray();
+//        Day20210207.reverseStringArray(tempch);
+//        System.out.println(tempch);
+          String temp = "ababd";
+          int longth = Day20210207.longestPaildrome(temp);
+          System.out.println(longth);
     }
 }
