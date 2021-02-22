@@ -4,6 +4,7 @@ import java.util.List;
 
 import day20210204.MinStack;
 import day20210207.Day20210207;
+import day20210220.DpPronlems;
 import personal.day0120.Day0120;
 //import personal.day0120.day0121.ListNode;
 import personal.day1014.SubString;
@@ -71,8 +72,15 @@ public class Main {
 //        char[] tempch = s.toCharArray();
 //        Day20210207.reverseStringArray(tempch);
 //        System.out.println(tempch);
-          String temp = "abcdef";
-          int longth = Day20210207.longestPaildrome(temp);
-          System.out.println(longth);
+
+//          String temp = "ababd";
+//          int longth = Day20210207.longestPaildrome(temp);
+//          System.out.println(longth);
+
+//          int[] coins = {3,2,7};
+//          int amount = 10;
+//          System.out.println(DpPronlems.coinChange(coins,amount));
+
+        DpPronlems.longestPalindrome("abaaacdcaaa");
     }
 }
