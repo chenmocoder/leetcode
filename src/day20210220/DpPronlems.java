@@ -1,5 +1,7 @@
 package day20210220;
 
+import java.lang.reflect.Array;
+
 /**
  * @className DpPronlems
  * @description dp 动态规划静定问题收录，结题思路整理
@@ -44,6 +46,28 @@ public class DpPronlems {
 
         }
         return dp[amount];
+    }
+
+    /**    
+     * @author 沉默的码农
+     * @date 2021-02-22 18:10  
+     * @param [str]
+     * @return java.lang.String  
+     */  
+    public static String longestPalindrome(String str) {  
+        String tempStr = "";
+
+        boolean[][] dp = new boolean[str.length()][str.length()];
+        dp[0][0] = true;
+        for(int i = 1;i<str.length();i++) {
+            dp[i][i] = true;
+            for(int j = 0;j<i; j++) {
+                if(str.charAt(i) == str.charAt(j) && str.charAt(j+1) == str.charAt(i-1)) {
+                    System.out.println(str.substring(j,i +1));
+                }
+            }
+        }
+        return tempStr;
     }
 
 }

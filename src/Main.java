@@ -78,8 +78,10 @@ public class Main {
 //          int longth = Day20210207.longestPaildrome(temp);
 //          System.out.println(longth);
 
-          int[] coins = {3,2,7};
-          int amount = 10;
-          System.out.println(DpPronlems.coinChange(coins,amount));
+//          int[] coins = {3,2,7};
+//          int amount = 10;
+//          System.out.println(DpPronlems.coinChange(coins,amount));
+
+        DpPronlems.longestPalindrome("abaaacdcaaa");
     }
 }
