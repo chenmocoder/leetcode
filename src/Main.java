@@ -71,7 +71,7 @@ public class Main {
 //        char[] tempch = s.toCharArray();
 //        Day20210207.reverseStringArray(tempch);
 //        System.out.println(tempch);
-          String temp = "ababd";
+          String temp = "abcdef";
           int longth = Day20210207.longestPaildrome(temp);
           System.out.println(longth);
     }
