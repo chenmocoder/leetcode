@@ -57,18 +57,65 @@ public class DpPronlems {
     public static String longestPalindrome(String str) {  
         String tempStr = "";
 
+
         boolean[][] dp = new boolean[str.length()][str.length()];
-        dp[0][0] = true;
-        for(int i = 1;i<str.length();i++) {
-            dp[i][i] = true;
-            for(int j = 0;j<i; j++) {
-                if(str.charAt(i) == str.charAt(j) && str.charAt(j+1) == str.charAt(i-1)) {
-                    System.out.println(str.substring(j,i +1));
-                    tempStr = tempStr.length() > str.substring(j,i +1).length() ? tempStr : str.substring(j,i +1);
+        for(int i = str.length() -1;i >= 0;i--) {
+            for(int j = i;j < str.length();j++ ) {
+                //判断 i-j 是否为回文字符串的判断条件  (j-i < 3)意思是 i-j 匹配度段长度小于等于三 时 str[i] == str[j]  该段就是回文
+                dp[i][j] = str.charAt(i) == str.charAt(j) && (j -i <3 || dp[i+1][j-1]);
+                if(dp[i][j]) {
+                    tempStr = tempStr.length() > j -i + 1 ? tempStr : str.substring(i,j+1);
                 }
             }
         }
         return tempStr;
+    }
+
+    /**
+     * 最长回文序列 注意此处是subseq  不是substring 子字符串必定是是相连的，而子序列subseq是可以隔开的
+     * @author 沉默的码农
+     * @date 2021-02-23 14:10
+     * @param [str]
+     * @return int
+     */
+    public static int longestPalindromeSubSeqlength(String str) {
+        int len = 0;
+        int[][] dp = new int[str.length()][str.length()];
+        for(int i = str.length() -1 ;i>= 0 ;i--) {
+            dp[i][i] = 1;
+            for(int j = i + 1; j<str.length();j++) {
+                //连续字符串相等时
+                if(str.charAt(i) == str.charAt(j)){
+                    dp[i][j] = dp[i +1][j -1] + 2;
+                } else {
+                    dp[i][j] = Math.max(dp[i+1][j],dp[i][j-1]);   //此处的含义还需要在研究下
+                }
+            }
+        }
+        return dp[0][str.length() -1];
+    }
+    /**
+     *
+     * 迷宫有多少种路径
+     * @author 沉默的码农
+     * @date 2021-02-23 15:15
+     * @param [m, n]
+     * @return int
+     */
+    public static int uniquePaths(int m, int n) {
+        int[][] dp = new int[m][n];
+        for(int i = 0;i<m;i++) {
+            for(int j = 0; j<n;j++) {
+                if(i == 0 || j == 0) {
+                    //特殊情况 一行 或者一列 只有一种方式；
+                    dp[i][j] = 1;
+                } else {
+                    dp[i][j] = dp[i-1][j] + dp[i][j-1];
+                }
+            }
+        }
+
+        return dp[m-1][n-1];
     }
 
 }
