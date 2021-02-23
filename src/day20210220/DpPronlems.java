@@ -118,6 +118,11 @@ public class DpPronlems {
         return dp[m-1][n-1];
     }
 
+    /**
+     *
+     * @param obstacleGrid
+     * @return
+     */
     public static int uniquePathsWithObstacles(int[][] obstacleGrid) {
 
         int R = obstacleGrid.length;
