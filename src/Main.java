@@ -84,7 +84,9 @@ public class Main {
 //        String str = DpPronlems.longestPalindrome("aaa");
 //        int len = DpPronlems.longestPalindromeSubSeqlength("bbbab");
 //        System.out.println("len = " + len);
-        int pathNum = DpPronlems.uniquePaths(3,7);
+//        int pathNum = DpPronlems.uniquePaths(3,7);
+        int[][] ob = {{0,0,0},{0,1,1},{0,0,0}};
+        int pathNum = DpPronlems.uniquePathsWithObstacles(ob);
         System.out.println(pathNum);
 
     }
