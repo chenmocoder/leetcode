@@ -73,14 +73,15 @@ public class Main {
 //        Day20210207.reverseStringArray(tempch);
 //        System.out.println(tempch);
 
-//          String temp = "ababd";
-//          int longth = Day20210207.longestPaildrome(temp);
-//          System.out.println(longth);
+          String temp = "abaaacdcaaa";
+          int longth = Day20210207.longestPaildrome(temp);
+          System.out.println(longth);
 
 //          int[] coins = {3,2,7};
 //          int amount = 10;
 //          System.out.println(DpPronlems.coinChange(coins,amount));
 
-        DpPronlems.longestPalindrome("abaaacdcaaa");
+        //String str = DpPronlems.longestPalindrome("abaaacdcaaa");
+        //System.out.println("str = " + str);
     }
 }

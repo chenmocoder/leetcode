@@ -54,7 +54,11 @@ public class Day20210207 {
             for(int j = i + 1;j<s.length();j++) {
                 if(s.charAt(i) == s.charAt(j)) {
                     temp[i][j] = temp[i+1][j-1] + 2;
+//                    System.out.println(s.substring(i,j+1));
                 } else {
+                    System.out.println(s.substring(i+1,j+1));
+                    System.out.println(s.substring(i+1,j));
+
                     temp[i][j] = Math.max(temp[i+1][j], temp[i][j-1]);
                 }
             }

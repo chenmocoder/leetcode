@@ -64,6 +64,7 @@ public class DpPronlems {
             for(int j = 0;j<i; j++) {
                 if(str.charAt(i) == str.charAt(j) && str.charAt(j+1) == str.charAt(i-1)) {
                     System.out.println(str.substring(j,i +1));
+                    tempStr = tempStr.length() > str.substring(j,i +1).length() ? tempStr : str.substring(j,i +1);
                 }
             }
         }
