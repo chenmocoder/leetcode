@@ -128,18 +128,17 @@ public class DpPronlems {
         int R = obstacleGrid.length;
         int C = obstacleGrid[0].length;
 
-        // If the starting cell has an obstacle, then simply return as there would be
-        // no paths to the destination.
+        // 如果初始节点就存在障碍物则没有路径
         if (obstacleGrid[0][0] == 1) {
             return 0;
         }
-
+        //初始节点没有障碍物则路径就是1
         obstacleGrid[0][0] = 1;
-
+        //如果只有一行 则需要满足 [i][0]不存在障碍物 并且 [i-1][0]也不存在障碍物
         for (int i = 1; i < R; i++) {
             obstacleGrid[i][0] = (obstacleGrid[i][0] == 0 && obstacleGrid[i - 1][0] == 1) ? 1 : 0;
         }
-
+        //与只有一行类似的情况
         for (int i = 1; i < C; i++) {
             obstacleGrid[0][i] = (obstacleGrid[0][i] == 0 && obstacleGrid[0][i - 1] == 1) ? 1 : 0;
         }
