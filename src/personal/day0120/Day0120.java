@@ -15,7 +15,7 @@ public class Day0120 {
     //输出: 49
 
     /**
-     *
+     *虽然解决了问题但是时间复杂度较高
      * @param height
      * @return 返回最大面积
      */
@@ -31,6 +31,29 @@ public class Day0120 {
                 if (tempArea > area) {
                     area = tempArea;
                 }
+            }
+        }
+        return area;
+    }
+
+    /**
+     * 求最大面试使用双指针来解决减少时间复杂度
+     * @param height
+     * @return
+     */
+    public int maxAreaByTwoPointer(int[] height) {
+        int area = 0;
+        int i = 0,j=height.length-1;
+        //第一次考虑了双重for循环时间复杂度n二次方较高提交没成功；
+        //这次试用数组双索引减少了时间复杂度
+        while(j >= i){
+            //最大面积取决于 [i,j]区间内 最小的值
+            area = Math.max(area,Math.min(height[i],height[j]) * (j-i));
+            //双索引移动的条件 就是那边小那边移动；
+            if(height[i] < height[j]) {
+                i++;
+            }else {
+                j--;
             }
         }
         return area;

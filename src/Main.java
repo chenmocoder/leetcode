@@ -5,8 +5,11 @@ import java.util.List;
 import day20210204.MinStack;
 import day20210207.Day20210207;
 import day20210220.DpPronlems;
+import day20210302.LinkedListProblem;
 import personal.day0120.Day0120;
 //import personal.day0120.day0121.ListNode;
+import personal.day0120.day0121.LinkedList;
+import personal.day0120.day0121.ListNode;
 import personal.day1014.SubString;
 import personal.day1202.SortList;
 import personal.day1203.Day1203;
@@ -85,9 +88,44 @@ public class Main {
 //        int len = DpPronlems.longestPalindromeSubSeqlength("bbbab");
 //        System.out.println("len = " + len);
 //        int pathNum = DpPronlems.uniquePaths(3,7);
-        int[][] ob = {{0,0,0},{0,1,1},{0,0,0}};
-        int pathNum = DpPronlems.uniquePathsWithObstacles(ob);
-        System.out.println(pathNum);
+//        int[][] ob = {{0,0,0},{0,1,1},{0,0,0}};
+//        int pathNum = DpPronlems.uniquePathsWithObstacles(ob);
+//        System.out.println(pathNum);
 
+        LinkedList linkedList = new LinkedList(1);
+        linkedList.pushTail(10);
+        linkedList.pushTail(11);
+        linkedList.pushTail(12);
+        linkedList.pushTail(13);
+        linkedList.pushTail(14);
+        ListNode head = linkedList.getHead();
+        //ListNode last = linkedList.getLastNode();
+        //last.setNext(head);
+        //boolean hsCycle = linkedList.hasCycle(head);
+        //System.out.println("hsCycle"+hsCycle);
+        //ListNode rhead = linkedList.reverseLinkedList(head);
+
+        //ListNode rhead = linkedList.reverseLinkedListByRecusion(head);
+        //linkedList.showLinkedList(rhead);
+        //linkedList.showLinkedList(head);
+        //ListNode reverNumHead = linkedList.reverseLinkedNumber(head,2);
+        //linkedList.showLinkedList(reverNumHead);
+
+//        int i = 210;
+//        Integer in = new Integer(i);
+//        String str = in.toString();
+//        char[] ch = str.toCharArray();
+//        int k = 0,j = ch.length - 1;
+//        while (j >= k) {
+//            char temp = ch[j];
+//            ch[j] = ch[k];
+//            ch[k] = temp;
+//            k++;
+//            j--;
+//        }
+//
+//        String chstr = String.valueOf(ch);
+//        int result = Integer.parseInt(chstr);
+//        System.out.println(result);
     }
 }
