@@ -58,4 +58,23 @@ public class Day0120 {
         }
         return area;
     }
+
+    /**
+     * 查找最长公共前缀
+     * ["leet","leets","leetcode","let"]  最长公共前缀是 "le"
+     * @author 沉默的码农
+     * @date 2021-03-09 17:02
+     * @param [str]  
+     * @return java.lang.String  
+     */  
+    public String longestCommonPrefix(String[] str) {
+        String prefix = str[0];
+        for(int i = 0;i<str.length;i++) {
+            while (str[i].indexOf(prefix) != 0) {
+                prefix = prefix.substring(0,prefix.length() -1);
+            }
+        }
+        
+        return prefix;
+    }
 }
