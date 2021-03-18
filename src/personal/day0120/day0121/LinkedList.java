@@ -57,6 +57,13 @@ public class LinkedList {
         size ++;
     }
 
+    /**
+     * 快慢指针判断链表是否有环
+     * @author 沉默的码农
+     * @date 2021-03-18 10:50
+     * @param [head]
+     * @return boolean
+     */
     public boolean hasCycle(ListNode head) {
         boolean result = false;
         if(head == null) {
@@ -105,6 +112,7 @@ public class LinkedList {
     public ListNode reverseLinkedList(ListNode head) {
         ListNode pre = null;
         ListNode cur = head;
+        //处理异常情况头结点为空或者下一个节点为空直接返回头结点
         if(cur == null || cur.next == null) {
             return head;
         }
@@ -119,6 +127,9 @@ public class LinkedList {
 
     /**
      * 用递归进行链表翻转
+     *
+     * 递归调用栈
+     *
      * @author 沉默的码农
      * @date 2021-03-08 9:01
      * @param [head]
@@ -178,6 +189,36 @@ public class LinkedList {
         }
         head.next = reverseBetween(head.next,m-1,n-1);
         return head;
+    }
+
+    /**
+     * 删除链表倒数第n个节点
+     * @author 沉默的码农
+     * @date 2021-03-17 9:38
+     * @param [head, n]
+     * @return personal.day0120.day0121.ListNode
+     */
+    public ListNode removeNthFromEnd(ListNode head,int n) {
+        int length = 0;
+        ListNode first = head;
+        ListNode dumy = new ListNode(0);
+        dumy.next = head;
+        //通过循环得到链表的长度
+        while (first!=null) {
+            length ++;
+            first = first.next;
+        }
+        System.out.println("length="+length);
+        length -= n;                   //length = length - n
+        first = dumy;
+        System.out.println("length - n ="+length);
+        while (length>0) {
+            System.out.println("loop length="+length);
+            length --;
+            first = first.next;
+        }
+        first.next = first.next.next;
+        return dumy.next;
     }
 
 }

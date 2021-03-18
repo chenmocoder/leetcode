@@ -99,6 +99,9 @@ public class Main {
         linkedList.pushTail(13);
         linkedList.pushTail(14);
         ListNode head = linkedList.getHead();
+
+        ListNode afHead = linkedList.removeNthFromEnd(head,2);
+        linkedList.showLinkedList(afHead);
         //ListNode last = linkedList.getLastNode();
         //last.setNext(head);
         //boolean hsCycle = linkedList.hasCycle(head);

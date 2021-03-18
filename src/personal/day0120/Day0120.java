@@ -70,11 +70,30 @@ public class Day0120 {
     public String longestCommonPrefix(String[] str) {
         String prefix = str[0];
         for(int i = 0;i<str.length;i++) {
+            //前缀字符串 没有在各个字符串元素中出现循环
             while (str[i].indexOf(prefix) != 0) {
+                //重新赋值前缀字符串 没走进一次循环 前缀字符串长度都减1
                 prefix = prefix.substring(0,prefix.length() -1);
             }
         }
         
+        return prefix;
+    }
+
+    public String longestCommonPrefix2(String[] str) {
+        if(str == null || str.length == 0) {
+            return "";
+        }
+        String prefix = "";
+        for(int i = 0;i<str[0].length();i++) {
+            char ch = str[0].charAt(i);
+            for(int j = 0;j<str.length;j++) {
+                //最长字符串满足 以下两种情况 1：有一个字符在任意一个字符串元素不存在时 2：任意字符串长度大于i
+                if(str[j].charAt(i) != ch || str[j].length() > i) {
+                    prefix = str[0].substring(0,i);
+                }
+            }
+        }
         return prefix;
     }
 }
