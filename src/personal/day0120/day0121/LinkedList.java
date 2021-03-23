@@ -136,13 +136,14 @@ public class LinkedList {
      * @return personal.day0120.day0121.ListNode
      */
     public ListNode reverseLinkedListByRecusion(ListNode head) {
+        //判断异常情况
         if(head == null || head.next == null) {
             return head;
         }
 
         ListNode tempNode = reverseLinkedListByRecusion(head.next);
-        head.next.next = head;
-        head.next = null;
+        head.next.next = head;//节点就地反转
+        head.next = null;//
         return tempNode;
     }
 
@@ -167,14 +168,15 @@ public class LinkedList {
     //记录需要第n个节点的下一个节点
     ListNode indexNumNode = null;
     public ListNode reverseLinkedNumber(ListNode head,int number) {
+        //处理异常情况 链表只有一个节点
         if(number == 1) {
             //第n各节点下一个节点赋值
              indexNumNode = head.next;
             return head;
         }
-
+        //递归调用翻转链表
         ListNode tempNode = reverseLinkedNumber(head.next,number -1);
-        //节点翻转
+        //节点翻转  将当前节点赋值给下个节点的指向
         head.next.next = head;
         //翻转后的节点和原来的节点连起来
         head.next = indexNumNode;
@@ -219,6 +221,40 @@ public class LinkedList {
         }
         first.next = first.next.next;
         return dumy.next;
+    }
+
+    /**
+     * 两个有序链表组成一个有序链表
+     * @author 沉默的码农
+     * @date 2021-03-23 11:39
+     * @param [l1, l2]
+     * @return personal.day0120.day0121.ListNode
+     */
+    public ListNode mergeTwoSortedList(ListNode l1,ListNode l2) {
+        //考虑异常情况
+        if(l1 == null) {
+            return l2;
+        }
+        if(l1 == null) {
+            return l1;
+        }
+        ListNode dummy = new ListNode(0);
+        ListNode head = dummy;
+        //l1 与l2 遍历
+        while (l1 != null && l2 != null) {
+            //此处因为ListNode value声明变量时变量类型使用的是 Object所以在比较时只能转化类型
+            if((Integer) l1.getValue() < (Integer) l2.getValue()) {
+                head.next = l1;
+                l1 = l1.next;
+            } else {
+                head.next = l2;
+                l2 = l2.next;
+            }
+            head = head.next;
+        }
+        //此处需要考虑下两个链表同时遍历 然后给新联调添加元素肯定会遗漏两个中的某一个链表的元素
+        head.next = l1 == null ? l2 : l1;
+        return dummy.next;
     }
 
 }
