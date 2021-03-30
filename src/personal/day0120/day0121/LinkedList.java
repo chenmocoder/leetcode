@@ -257,4 +257,25 @@ public class LinkedList {
         return dummy.next;
     }
 
+    public ListNode reverseKgroup(ListNode head,int k) {
+        ListNode cur = head;
+        int count = 0;
+        //找到 第 k+1 个节点
+        while (count != k) {
+            cur = cur.next;
+            count ++;
+        }
+
+        if(k == count) {
+            cur = reverseKgroup(cur,k);
+            while (count > 0) {
+                ListNode temp = head.next;
+                head.next = cur;
+                cur = head;
+                head = temp;
+            }
+            head = cur;
+        }
+        return head;
+    }
 }
